@@ -19,11 +19,14 @@ console.log(swaggerDocs);
 app.use('/docs/', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
-const PORT = 5005;
+const PORT = process.env.PORT || 5005;
 const startServer = () => {
     console.log(`express start on ${PORT}`);
-}
+};
 
+app.get('/', (req, res) => {
+    res.json({'message': 'ok'});
+});
 
 /**
  * @swagger
@@ -35,7 +38,7 @@ const startServer = () => {
  *         description: Success
  * 
  */
-app.get('/books', (req, res) => {
+app.get('/api', (req, res) => {
     res.send([
         { id: 1, title: 'Harry Potter'},
         { id: 2, title: 'Война и Мир'},
@@ -63,4 +66,4 @@ app.post('/books', (req, res) => {
 });
 
 
-app.listen(PORT, startServer);
+app.listen(PORT, '0.0.0.0', startServer);
