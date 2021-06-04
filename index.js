@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 /**
  * @swagger
- * /books:
+ * /api:
  *   get:
  *     description: Get all books
  *     responses:
@@ -47,7 +47,7 @@ app.get('/api', (req, res) => {
 
 /**
  * @swagger
- * /books:
+ * /api:
  *   post:
  *     description: Create a new book
  *     parameters:
@@ -61,7 +61,7 @@ app.get('/api', (req, res) => {
  *         description: Created
  * 
  */
-app.post('/books', (req, res) => {
+app.post('/api', (req, res) => {
     res.status(201).send();
 });
 
